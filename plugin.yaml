@@ -1,0 +1,28 @@
+name: hermes-persona-stickers
+version: "1.0.0"
+description: "Persona-aware emotion reaction sticker generator for Hermes Agent via ComfyUI & fast templating."
+author: "Eric Black & Xuewan"
+license: "MIT"
+requires_hermes: ">=0.20.0"
+
+provides_tools:
+  - generate_persona_sticker
+provides_hooks:
+  - post_llm_call
+provides_commands:
+  - sticker
+requires_env: []
+
+config_schema:
+  comfyui_url:
+    type: string
+    default: "http://127.0.0.1:8188"
+    description: "ComfyUI API endpoint URL"
+  default_mode:
+    type: string
+    default: "auto"
+    description: "Generation mode: 'auto', 'comfyui', or 'fast'"
+  auto_attach_prob:
+    type: number
+    default: 0.3
+    description: "Probability of automatically attaching an emotion sticker after an agent response (0.0 to 1.0)"
